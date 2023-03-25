@@ -1,0 +1,31 @@
+.ticket {
+    display: flex;
+    justify-content: flex-start;
+}
+.property {
+    margin: 2px 10px 2px 5px;
+}
+.mark {
+    margin-right: 2px;
+}
+.cloud {
+    background-color: yellow;    
+}
+.settings {
+    width: 300px;
+    margin-bottom: 5px;
+}
+.params {
+    display: flex;
+    width: 300px;
+    margin-bottom: 5px;
+}
+.column {
+    flex: 1;
+    text-align: left;
+    margin-left: 10px;
+    
+}
+.ladder {
+    background-color: greenyellow;   
+}

@@ -1,0 +1,84 @@
+.RequestListButton {
+    cursor:pointer;
+    display:block;
+    height:36px;
+    width:138px;
+    line-height:36px;
+    text-align:center;
+    background-repeat:no-repeat;
+    border-radius:10px;
+    -moz-border-radius:10px;
+    -khtml-border-radius:10px;
+    -webkit-border-radius: 10px;
+    font-size: 7pt;
+   font-family: 'Times New Roman';
+
+}
+
+.locked {
+        background-image: url("/dc/img/RequestList/lock.png");
+        background-repeat: no-repeat;
+        background-position: right 12px;
+}
+
+.mylocked {
+        background-image: url("/dc/img/RequestList/mylock.png");
+        background-repeat: no-repeat;
+        background-position: right 12px;
+}
+
+.colormark {
+ float:left;
+ display: block;
+ width: 5px;
+ padding-right: 5px;
+ margin-right: -10px;
+ height: 44px;
+}
+.critical_5{ 
+/* blocker */
+	background-color: #E30000;
+}
+.critical_4{ 
+/* critical */
+	background-color: #FA9E31;
+}
+.critical_3{ 
+/* minor */
+	background-color: #C7F192;
+}
+.critical_2{ 
+/* normal */
+	background-color: #CDCDCD;
+}
+.critical_1{ 
+/* trivial */
+	background-color: #E4FDC7;
+}
+
+.article{ 
+	background-color: rgb(255, 244, 194);
+}
+/*
+.article_type2{ 
+	background-color: rgb(171, 236, 164);
+}
+.article_type3{ 
+	background-color: rgb(255, 244, 194);
+}
+.article_type1{ 
+	background-color: rgb(255, 200, 200);
+}
+.article_type2_border{ 
+	border-right: 10px solid rgb(171, 236, 164);
+	padding: 5px;
+}
+.article_type3_border{ 
+	border-right: 10px solid rgb(255, 244, 194);
+	padding: 5px;
+}
+.article_type1_border{ 
+	border-right: 10px solid rgb(255, 200, 200);
+	padding: 5px;
+}
+*/

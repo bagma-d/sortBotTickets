@@ -1,0 +1,150 @@
+@CHARSET "UTF-8";
+
+body {
+	margin: 0 0 0 5px;
+}
+
+.content {text-align: center;}
+
+.subbutton {
+width: 50%; float: left;
+}
+.subbutton .left .cursor {
+	background-image: url("../../img/Main/leftcursor.png");
+	background-position: left;
+	margin-left: 10px;
+	padding-left: 20px;
+	}
+.subbutton .right .cursor {
+	background-position: right;
+	margin-right: 10px;
+	padding-right: 40px;
+	}
+
+.subbutton .right {
+border-left: 1px dotted; width: auto; text-align: right;
+}
+
+#home {
+	background-image: url("../../img/Main/home.png");
+}
+#task {
+		background-image: url('../../img/Main/task.png');
+
+	}
+#logout {
+		background-image: url('../../img/Main/logout.png');
+	}
+
+.cursor {
+	background-image: url("../../img/Main/cursor.png");
+	display: block;
+	background-repeat: no-repeat;
+	background-position: right 12px;
+	margin-right: 10px;
+}
+
+.clear {
+	clear: both;
+}
+
+[ptree] select {
+  display: block;
+}
+
+.button {
+	text-align: left;
+	vertical-align: middle;
+	line-height: 44px;
+	display: block;
+	color: black;
+	font-size: large;
+	text-decoration: none;
+	height: 44px;
+	margin-top: 1px;
+	background-color: #ebeff1;
+	overflow: hidden;
+}
+
+.button.line {border-bottom: 1px dotted;}
+.footer {border-top: 1px dotted;}
+
+.name {
+	display: inline-block;
+	vertical-align: middle;
+	margin-left: 10px;
+}
+
+.button:active {
+	background-color: #7cb66d !important;
+}
+
+.button:hover {
+	background-color: #7cb66d !important;
+}
+
+.inputtext {
+  	text-align: center;
+	vertical-align: middle;
+	line-height: 22px;
+	display: block;
+	color: black;
+	font-size: large;
+}
+
+.realbutton {
+	width: 100%;
+	height: 44px;
+	line-height: 44px;
+	margin-top:3px;
+	margin-bottom: 3px;
+	font-size: large;
+}
+
+.textarea
+	{
+	font-size: large;
+  	text-align: center;
+	width: 80%;
+	height: 132px;
+	line-height: normal;
+	}
+.bigtext
+	{
+	width: 100%;
+	height: 44px;
+	line-height: normal;
+	}
+.bigselect {
+	font-size: x-large;
+	line-height:37px;
+	height:37px;
+	text-align: center;
+	width: 70px;
+	}
+
+.text {
+font-size: large;
+}
+
+.error {
+background-color: #ff5959;
+font-size: large;
+font-weight: bold;
+text-align: center;
+}
+
+.warning {
+background-color: #ffe700;
+text-align: center;
+}
+
+.hint {
+background-color: #ccccff;
+text-align: center;
+}
+
+.ok {
+background-color: #00ff00;
+font-weight: bold;
+}
