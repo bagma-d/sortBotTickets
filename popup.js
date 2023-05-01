@@ -259,6 +259,10 @@ function arrange() {
 		const ticketID = ticketRef.slice(ticketRef.indexOf('ITDC'), ticketRef.indexOf('ITDC') + 11);
 		const ticketString = tickets[i].querySelector('span > span:nth-child(2)').innerText;
 		strings2array.push(ticketString.split(' : '));
+		const isCloud = (ticketString.split(' : '))[0].split(' ')[0] !== '[CLOUD]' ? false : true;
+		let location = (ticketString.split(' : '))[0].split(' ')[0] !== '[CLOUD]' ? (ticketString.split(' : '))[0].split(' ')[0] : (ticketString.split(' : '))[0].split(' ')[1];
+		location = location.slice(1, location.length - 1);
+		console.log(location);
 		if (ticketCheck === 'Check NOC component' || ticketCheck === 'Other') {
 			const module = strings2array[i][0];
 		//	console.log('mod: ', module);
@@ -288,7 +292,7 @@ function arrange() {
 		}
 		} else {
 		//	console.log('string: ', strings2array[i]);
-			const module = strings2array[i][0].slice(strings2array[i][0].indexOf('VLA-'), strings2array[i][0].indexOf('/'));
+			const module = strings2array[i][0].slice(strings2array[i][0].indexOf(location + '-'), strings2array[i][0].indexOf('/'));
 		//	console.log('mod: ', module);
 			const rack = strings2array[i][0].slice(strings2array[i][0].indexOf('/') + 1, strings2array[i][0].indexOf('(') - 1);
 		//	console.log('rack: ', rack);
@@ -315,7 +319,8 @@ function arrange() {
 				ticketType: componentType,
 				ticketInventoryNumber: nodeInventory,
 				ticketElapse: ticketElapse,
-				ticketCheck: ticketCheck				
+				ticketCheck: ticketCheck,
+				isCloud: isCloud				
 			}	));
 		}	
 		tickets[i].closest('a').remove();
@@ -344,12 +349,16 @@ function arrange() {
 		ticketRack: -1,
 		ticketUnit: -1
 	}));	
-	
+	console.log(fieldSortedTickets);
+	console.log(fieldSortedTickets.length);
 	// очередь тикетов
 	
-	
+	const clearHTML = `<div class="clear"></div>`;
 	
 	for (let i=0; i<fieldSortedTickets.length; i++) {	
+		if (i == 0) {
+			container.insertAdjacentHTML('beforeEnd', clearHTML);
+		}
 	if (settings.doHdd === true && fieldSortedTickets[i].ticketCheck === 'Check drive'){
 		lineBuilder();
 	} else if (settings.doRam === true && fieldSortedTickets[i].ticketCheck === 'Check RAM') {
@@ -358,7 +367,7 @@ function arrange() {
 		lineBuilder();
 	} 
 	function lineBuilder() {
-		const cloudClass = fieldSortedTickets[i].ticketModule === 'VLA-04' || fieldSortedTickets[i].module === 'VLA-14' ? 'cloud' : '';
+		const cloudClass = fieldSortedTickets[i].isCloud === true ? 'cloud' : '';
 		const ladderClass = fieldSortedTickets[i].ticketUnit > 31 ? 'ladder' : '';
 		const nocTicket = fieldSortedTickets[i].ticketCheck !== 'Other' ? `<div class="property">${fieldSortedTickets[i].ticketElapse}</div>` : '';
 		const hwTicket = fieldSortedTickets[i].ticketCheck !== 'Other' && fieldSortedTickets[i].ticketCheck !== 'Check NOC component' ? 
@@ -379,8 +388,7 @@ function arrange() {
 			</div>
 		</span>
 		</a>`;	
-			
-		container.insertAdjacentHTML('beforeend', ticketBodyHTML);
+		container.insertAdjacentHTML('beforeEnd', ticketBodyHTML);
 		//window.open(fieldSortedTickets[i].ticketRef, "_blank");
 	}
 
