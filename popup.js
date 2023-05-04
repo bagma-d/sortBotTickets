@@ -258,9 +258,11 @@ function arrange() {
 		const ticketSLA = tickets[i].querySelector('span > span:first-child').getAttribute('class');
 		const ticketID = ticketRef.slice(ticketRef.indexOf('ITDC'), ticketRef.indexOf('ITDC') + 11);
 		const ticketString = tickets[i].querySelector('span > span:nth-child(2)').innerText;
-		strings2array.push(ticketString.split(' : '));
-		const isCloud = (ticketString.split(' : '))[0].split(' ')[0] !== '[CLOUD]' ? false : true;
-		let location = (ticketString.split(' : '))[0].split(' ')[0] !== '[CLOUD]' ? (ticketString.split(' : '))[0].split(' ')[0] : (ticketString.split(' : '))[0].split(' ')[1];
+
+		shredSymbol = ticketString.indexOf(' : ') !== -1 ? ' : ' : ' | ';
+		strings2array.push(ticketString.split(shredSymbol));
+		const isCloud = (ticketString.split(shredSymbol))[0].split(' ')[0] !== '[CLOUD]' ? false : true;
+		let location = (ticketString.split(shredSymbol))[0].split(' ')[0] !== '[CLOUD]' ? (ticketString.split(shredSymbol))[0].split(' ')[0] : (ticketString.split(shredSymbol))[0].split(' ')[1];
 		location = location.slice(1, location.length - 1);
 		console.log(location);
 		if (ticketCheck === 'Check NOC component' || ticketCheck === 'Other') {
